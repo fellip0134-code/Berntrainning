@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ video }} - BernTrainning</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Treinamento</h1>
+  </header>
+
+  <main>
+    <video width="800" controls>
+      <source src="{{ url_for('uploaded_file', filename=video) }}" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </main>
+</body>
+</html>
