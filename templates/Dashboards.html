@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - BernTrainning</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Painel do Administrador</h1>
+  </header>
+
+  <main>
+    {% if profile %}
+      <img src="{{ url_for('profile_file', filename='profile.jpg') }}" width="100" alt="Foto do admin">
+    {% endif %}
+
+    <h2>Upload de Vídeo</h2>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="video" accept="video/*" required>
+      <button type="submit">Enviar Vídeo</button>
+    </form>
+
+    <h2>Upload de Foto de Perfil</h2>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="profile" accept="image/*" required>
+      <button type="submit">Enviar Foto</button>
+    </form>
+
+    <h2>Vídeos Enviados</h2>
+    <ul>
+      {% for v in videos %}
+      <li><a href="{{ url_for('video', name=v) }}">{{ v }}</a></li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
