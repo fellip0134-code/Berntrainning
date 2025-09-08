@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>BernTrainning</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>BernTrainning</h1>
+    <p>Treinamentos disponíveis</p>
+  </header>
+
+  <main>
+    <ul>
+      {% for v in videos %}
+      <li><a href="{{ url_for('video', name=v) }}">{{ v }}</a></li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
